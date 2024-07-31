@@ -21,7 +21,7 @@ export class StudentsService {
   }
 
   findOne(id: number) {
-    return this.studentRepository.find({where:{
+    return this.studentRepository.findOne({where:{
       regno: id.toString()
     }});
   }
