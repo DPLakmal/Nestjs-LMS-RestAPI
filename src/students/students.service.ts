@@ -32,12 +32,17 @@ export class StudentsService {
   }
 
   async remove(id: number) {
-  
-    const student = await this.findOne(id);
+      const student = await this.findOne(id);
     if (student) {
       return this.studentRepository.remove(student);
     } else {
       throw new Error('Student not found');
     }
   }
+
+async  count() {
+  return this.studentRepository.count()
+}
+
+
 }

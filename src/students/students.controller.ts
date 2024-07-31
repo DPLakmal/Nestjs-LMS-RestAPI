@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
@@ -12,8 +12,14 @@ export class StudentsController {
     return this.studentsService.create(createStudentDto);
   }
 
+
+
   @Get()
-  findAll() {
+  async getStudents(@Query('count') count: string): Promise<any> {
+    if (count === 'true') {
+      const studentCount = await this.studentsService.count();
+      return { count: studentCount };
+    }
     return this.studentsService.findAll();
   }
 
