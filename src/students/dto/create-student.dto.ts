@@ -1,5 +1,8 @@
 export class CreateStudentDto {
-    id:number
-    name:string
-    year:number
+    regno:number
+    firstname:string
+    lastname:string
+    academicynear:number
+    isactive:boolean
+    profilepicture:string
 }

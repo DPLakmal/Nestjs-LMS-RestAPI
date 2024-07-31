@@ -4,14 +4,20 @@ import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
 @Entity('students')
 export class Student {
   @PrimaryColumn()
-  id: number;
+  regno: number;
 
   @Column({ length: 500 })
-  name: string;
+   firstname: string;
+
+  @Column({ length: 500 })
+   lastname: string;
 
   @Column()
-  year:number
+  academicyear:number;
 
   @Column()
-  img:string
+  isactive:boolean;
+
+  @Column()
+  profilepicture:string;
 }
