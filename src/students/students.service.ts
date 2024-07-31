@@ -27,10 +27,22 @@ export class StudentsService {
   }
 
   update(id: number, updateStudentDto: UpdateStudentDto) {
-    return `This action updates a #${id} student`;
+   
+    return this.studentRepository.update(id,updateStudentDto)
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} student`;
+  async remove(id: number) {
+      const student = await this.findOne(id);
+    if (student) {
+      return this.studentRepository.remove(student);
+    } else {
+      throw new Error('Student not found');
+    }
   }
+
+async  count() {
+  return this.studentRepository.count()
+}
+
+
 }
