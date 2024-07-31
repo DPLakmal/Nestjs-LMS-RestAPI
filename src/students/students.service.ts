@@ -21,7 +21,9 @@ export class StudentsService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} student`;
+    return this.studentRepository.find({where:{
+      regno: id.toString()
+    }});
   }
 
   update(id: number, updateStudentDto: UpdateStudentDto) {

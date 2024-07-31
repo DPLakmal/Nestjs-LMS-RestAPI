@@ -1,8 +1,8 @@
 export class CreateStudentDto {
-    regno:number
+    regno:string
     firstname:string
     lastname:string
-    academicynear:number
+    academicynear:string
     isactive:boolean
     profilepicture:string
 }

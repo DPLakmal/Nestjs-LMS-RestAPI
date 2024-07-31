@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm';
 @Entity('students')
 export class Student {
   @PrimaryColumn()
-  regno: number;
+  regno: string;
 
   @Column({ length: 500 })
    firstname: string;
@@ -13,7 +13,7 @@ export class Student {
    lastname: string;
 
   @Column()
-  academicyear:number;
+  academicyear:string;
 
   @Column()
   isactive:boolean;
